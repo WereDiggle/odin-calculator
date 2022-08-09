@@ -9,6 +9,7 @@
 - [x] Create "operate" function that accepts an operator and two numbers
 - [ ] Get input from keypad
 - [ ] Update current input on display
+- [ ] Check for overflow
 ### Layout
 - [ ] Buttons for each digit
 - [ ] Add button
