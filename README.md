@@ -2,12 +2,13 @@
 
 ## TODO
 ### Functionality
-- [ ] create "Add" function
-- [ ] create "subtract" function
-- [ ] create "Multiply" function
-- [ ] create "Divide" function
-- [ ] Create "operate" function that accepts an operator and two numbers
-- [ ] store numbers in two variables
+- [x] create "Add" function
+- [x] create "subtract" function
+- [x] create "Multiply" function
+- [x] create "Divide" function
+- [x] Create "operate" function that accepts an operator and two numbers
+- [ ] Get input from keypad
+- [ ] Update current input on display
 ### Layout
 - [ ] Buttons for each digit
 - [ ] Add button
