@@ -59,6 +59,11 @@ $("#op-equals").addEventListener("click", (e) => {
   }
 });
 
+$("#op-clear").addEventListener("click", (e) => {
+  currentInput = "";
+  inputList = [];
+});
+
 $$("button").forEach((button) =>
   button.addEventListener("click", (e) => {
     updateDisplay();
