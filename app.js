@@ -5,13 +5,20 @@ const operations = {
   "+": (a, b) => a + b,
   "-": (a, b) => a - b,
   "/": (a, b) => a / b,
-  "*": (a, b) => a % b,
+  "*": (a, b) => a * b,
 };
 
 const operate = (op, a, b) => op(a, b);
 
 var inputList = [];
 var currentInput = "";
+
+function pushCurrentInput() {
+  if (currentInput) {
+    inputList.push(+currentInput);
+    currentInput = "";
+  }
+}
 
 function updateDisplay() {
   $("#display").textContent = inputList.join(" ") + " " + currentInput;
@@ -22,7 +29,9 @@ updateDisplay();
 $$("#numpad button").forEach((button) =>
   button.addEventListener("click", (e) => {
     let value = e.target.getAttribute("key-value");
-    currentInput += value;
+    if (currentInput || inputList.length % 2 == 0) {
+      currentInput += value;
+    }
   })
 );
 
@@ -31,18 +40,24 @@ $$("#operations button").forEach((button) =>
     // Operation buttons shouldn't do anything
     // If there's nothing to operate on
     let value = e.target.getAttribute("key-value");
-    if (currentInput) {
-      inputList.push(+currentInput);
-      currentInput = "";
-      if (inputList.length === 3) {
-        inputList = [
-          operate(operations[inputList[1]], inputList[0], inputList[2]),
-        ];
-      }
+    pushCurrentInput();
+    if (inputList.length === 3) {
+      inputList = [
+        operate(operations[inputList[1]], inputList[0], inputList[2]),
+      ];
+    }
+    if (inputList.length === 1) {
       inputList.push(value);
     }
   })
 );
+
+$("#op-equals").addEventListener("click", (e) => {
+  pushCurrentInput();
+  if (inputList.length === 3) {
+    inputList = [operate(operations[inputList[1]], inputList[0], inputList[2])];
+  }
+});
 
 $$("button").forEach((button) =>
   button.addEventListener("click", (e) => {
