@@ -8,20 +8,18 @@ const operations = {
   "*": (a, b) => a * b,
 };
 
-const operate = (op, a, b) => op(a, b);
+const operate = (op, a, b) => op(+a, +b);
 
-var inputList = [];
-var currentInput = "";
-
-function pushCurrentInput() {
-  if (currentInput) {
-    inputList.push(+currentInput);
-    currentInput = "";
-  }
-}
+var numA = "";
+var numB = "";
+var curOp = "";
 
 function updateDisplay() {
-  $("#display").textContent = inputList.join(" ") + " " + currentInput;
+  if (numA !== "") {
+    $("#display").textContent = numA;
+  } else {
+    $("#display").textContent = numB;
+  }
 }
 
 updateDisplay();
@@ -29,9 +27,10 @@ updateDisplay();
 $$("#numpad button").forEach((button) =>
   button.addEventListener("click", (e) => {
     let value = e.target.getAttribute("key-value");
-    if (currentInput || inputList.length % 2 == 0) {
-      currentInput += value;
-    }
+    // TODO: check valid char add
+    // EX: can't add 0 if already just 0
+    // Can't add multiple decimals
+    numA += value;
   })
 );
 
@@ -40,22 +39,24 @@ $$("#operations button").forEach((button) =>
     // Operation buttons shouldn't do anything
     // If there's nothing to operate on
     let value = e.target.getAttribute("key-value");
-    pushCurrentInput();
-    if (inputList.length === 3) {
-      inputList = [
-        operate(operations[inputList[1]], inputList[0], inputList[2]),
-      ];
-    }
-    if (inputList.length === 1) {
-      inputList.push(value);
+
+    if (numB !== "" && numA !== "" && curOp !== "") {
+      numB = operate(operations[curOp], numB, numA);
+      numA = "";
+      curOp = value;
+    } else if (numA !== "" && curOp === "") {
+      numB = numA;
+      numA = "";
+      curOp = value;
     }
   })
 );
 
 $("#op-equals").addEventListener("click", (e) => {
-  pushCurrentInput();
-  if (inputList.length === 3) {
-    inputList = [operate(operations[inputList[1]], inputList[0], inputList[2])];
+  if (numB !== "" && numA !== "" && curOp !== "") {
+    numB = operate(operations[curOp], numB, numA);
+    numA = "";
+    curOp = "";
   }
 });
 
@@ -75,3 +76,21 @@ $$("button").forEach((button) =>
 // And then reset currentInput
 
 // compute value if number and operator already in inputList
+
+// numA
+// numB
+// operation
+
+// clicking on numpad always adds numbers to numA
+
+// clicking on any operation while operation, numB is empty and numA is filled
+// shifts numA into numB, and fills operation
+
+// clicking on any operation while numA, numB, and operation is filled
+// will force calculation and put result into numB, and overwrite prev operation
+
+// `=` forces calculation if numA, numB, and operation are filled
+// clears operation
+
+// Display will show number from numA unless empty, in which it will try numB
+// We want the current number to still be displayed when numA gets shifted into numB by an operation
