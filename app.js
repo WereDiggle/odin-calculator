@@ -24,7 +24,7 @@ function updateDisplay() {
 
 updateDisplay();
 
-$$("#numpad button").forEach((button) =>
+$$(".num-button").forEach((button) =>
   button.addEventListener("click", (e) => {
     let value = e.target.getAttribute("key-value");
     // TODO: check valid char add
@@ -34,7 +34,7 @@ $$("#numpad button").forEach((button) =>
   })
 );
 
-$$("#operations button").forEach((button) =>
+$$(".op-button").forEach((button) =>
   button.addEventListener("click", (e) => {
     // Operation buttons shouldn't do anything
     // If there's nothing to operate on
