@@ -61,8 +61,9 @@ $("#op-equals").addEventListener("click", (e) => {
 });
 
 $("#op-clear").addEventListener("click", (e) => {
-  currentInput = "";
-  inputList = [];
+  curOp = "";
+  numA = "";
+  numB = "";
 });
 
 $$("button").forEach((button) =>
