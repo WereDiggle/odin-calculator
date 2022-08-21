@@ -44,8 +44,8 @@ $$(".op-button").forEach((button) =>
       numB = operate(operations[curOp], numB, numA);
       numA = "";
       curOp = value;
-    } else if (numA !== "" && curOp === "") {
-      numB = numA;
+    } else if (curOp === "") {
+      numB = numA || numB;
       numA = "";
       curOp = value;
     }
