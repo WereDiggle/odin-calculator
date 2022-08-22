@@ -11,8 +11,8 @@
 - [x] Update current input on display
 - [x] Evaluate on pressing '='
 - [x] Display active op
-- [ ] Dot makes number into decimal
-- [ ] Verify number is valid before adding
+- [x] Dot makes number into decimal
+- [x] Verify number is valid before adding
 - [ ] Round decimals down to avoid overflow
 ### Layout
 - [x] Buttons for each digit

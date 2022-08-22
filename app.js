@@ -55,12 +55,20 @@ updateDisplay();
 $$(".num-button").forEach((button) =>
   button.addEventListener("click", (e) => {
     let value = e.target.getAttribute("key-value");
-    // TODO: check valid char add
-    // EX: can't add 0 if already just 0
+    // Prevent leading zeros
+    if (value === "0" && numA.length === 0) {
+      return;
+    }
     // Can't add multiple decimals
     numA += value;
   })
 );
+
+$("#num-dot").addEventListener("click", (e) => {
+  if (!numA.includes(".")) {
+    numA += ".";
+  }
+});
 
 $$(".op-button").forEach((button) =>
   button.addEventListener("click", (e) => {
