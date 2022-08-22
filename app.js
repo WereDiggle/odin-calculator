@@ -29,6 +29,7 @@ function updateDisplay() {
   // Clear out previous display
   for (const node of displayCharNodes) {
     node.textContent = "*";
+    node.classList.remove("active");
   }
 
   let displayStr = numA || numB;
@@ -37,6 +38,7 @@ function updateDisplay() {
 
   for (let i = start; i < start + end; i++) {
     displayCharNodes[i].textContent = displayStr.charAt(i - start);
+    displayCharNodes[i].classList.add("active");
   }
   //if (numA !== "") {
   //  $("#display").textContent = numA;
