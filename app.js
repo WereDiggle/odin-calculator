@@ -31,20 +31,23 @@ function updateDisplay() {
     node.textContent = "*";
     node.classList.remove("active");
   }
+  $("#display-star").textContent = "*";
+  $("#display-star").classList.remove("active");
 
+  // Fill in display
   let displayStr = numA || numB;
   let start = Math.max(0, displayCharNodes.length - displayStr.length);
   let end = Math.min(displayStr.length, displayCharNodes.length);
-
   for (let i = start; i < start + end; i++) {
     displayCharNodes[i].textContent = displayStr.charAt(i - start);
     displayCharNodes[i].classList.add("active");
   }
-  //if (numA !== "") {
-  //  $("#display").textContent = numA;
-  //} else {
-  //  $("#display").textContent = numB;
-  //}
+
+  // Fill operator
+  if (curOp) {
+    $("#display-star").textContent = curOp;
+    $("#display-star").classList.add("active");
+  }
 }
 
 updateDisplay();

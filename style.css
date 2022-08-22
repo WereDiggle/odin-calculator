@@ -74,12 +74,15 @@ button {
 	font-weight: 900;
 }
 
+#display-star,
 .display-char {
 	color: #508050;
 	font-weight: 900;
 	font-size: 3rem;
+	text-align: center;
 }
 
+#display-star.active,
 .display-char.active {
 	color: #102818;
 }
@@ -102,7 +105,7 @@ button {
 	display: flex;
 	flex: 1;
 	flex-direction: row;
-	justify-content: space-between;
+	justify-content: space-evenly;
 }
 
 .display-char {
