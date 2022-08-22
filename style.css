@@ -80,6 +80,24 @@ button {
 	border: 5px solid #102818;
 	border-left-width: 20px;
 	border-right-width: 20px;
+	display: flex;
+	flex-direction: row;
+}
+
+#display-star {
+	width: 50px;
+}
+
+#display-nums {
+	display: flex;
+	flex: 1;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.display-char {
+	width: 25px;
+	height: 50px;
 }
 
 #numpad {

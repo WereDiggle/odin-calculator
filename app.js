@@ -14,12 +14,35 @@ var numA = "";
 var numB = "";
 var curOp = "";
 
+// Initialize display
+// Fill display with divs of class 'display-char'
+// Put them into a list for access later
+var displayCharNodes = [];
+for (let i = 0; i < 10; i++) {
+  let node = document.createElement("div");
+  node.classList.add("display-char");
+  $("#display-nums").appendChild(node);
+  displayCharNodes.push(node);
+}
+
 function updateDisplay() {
-  if (numA !== "") {
-    $("#display").textContent = numA;
-  } else {
-    $("#display").textContent = numB;
+  // Clear out previous display
+  for (const node of displayCharNodes) {
+    node.textContent = "*";
   }
+
+  let displayStr = numA || numB;
+  let start = Math.max(0, displayCharNodes.length - displayStr.length);
+  let end = Math.min(displayStr.length, displayCharNodes.length);
+
+  for (let i = start; i < start + end; i++) {
+    displayCharNodes[i].textContent = displayStr.charAt(i - start);
+  }
+  //if (numA !== "") {
+  //  $("#display").textContent = numA;
+  //} else {
+  //  $("#display").textContent = numB;
+  //}
 }
 
 updateDisplay();
@@ -41,7 +64,7 @@ $$(".op-button").forEach((button) =>
     let value = e.target.getAttribute("key-value");
 
     if (numB !== "" && numA !== "" && curOp !== "") {
-      numB = operate(operations[curOp], numB, numA);
+      numB = operate(operations[curOp], numB, numA).toString();
       numA = "";
       curOp = value;
     } else if (curOp === "") {
@@ -54,7 +77,7 @@ $$(".op-button").forEach((button) =>
 
 $("#op-equals").addEventListener("click", (e) => {
   if (numB !== "" && numA !== "" && curOp !== "") {
-    numB = operate(operations[curOp], numB, numA);
+    numB = operate(operations[curOp], numB, numA).toString();
     numA = "";
     curOp = "";
   }
