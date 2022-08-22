@@ -9,7 +9,10 @@
 - [x] Create "operate" function that accepts an operator and two numbers
 - [x] Get input from keypad
 - [x] Update current input on display
-- [ ] Evaluate on pressing '='
+- [x] Evaluate on pressing '='
+- [ ] Display active op
+- [ ] Dot makes number into decimal
+- [ ] Verify number is valid before adding
 - [ ] Round decimals down to avoid overflow
 ### Layout
 - [x] Buttons for each digit
@@ -18,5 +21,9 @@
 - [x] Multiply button
 - [x] divide button
 - [x] display numbers and operations
-- [ ] clear button
+- [x] clear button
 ### Design
+- [ ] layout ratio
+- [ ] Border around calculator
+- [ ] Pixel font
+- [ ] Button depth
