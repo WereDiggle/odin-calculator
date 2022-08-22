@@ -17,8 +17,9 @@ var curOp = "";
 // Initialize display
 // Fill display with divs of class 'display-char'
 // Put them into a list for access later
+const displayLen = 10;
 var displayCharNodes = [];
-for (let i = 0; i < 10; i++) {
+for (let i = 0; i < displayLen; i++) {
   let node = document.createElement("div");
   node.classList.add("display-char");
   $("#display-nums").appendChild(node);
@@ -36,8 +37,8 @@ function updateDisplay() {
 
   // Fill in display
   let displayStr = numA || numB;
-  let start = Math.max(0, displayCharNodes.length - displayStr.length);
-  let end = Math.min(displayStr.length, displayCharNodes.length);
+  let start = Math.max(0, displayLen - displayStr.length);
+  let end = Math.min(displayStr.length, displayLen);
   for (let i = start; i < start + end; i++) {
     displayCharNodes[i].textContent = displayStr.charAt(i - start);
     displayCharNodes[i].classList.add("active");
@@ -56,7 +57,7 @@ $$(".num-button").forEach((button) =>
   button.addEventListener("click", (e) => {
     let value = e.target.getAttribute("key-value");
     // Prevent leading zeros
-    if (numA.length >= displayCharNodes.length) return;
+    if (numA.length >= displayLen) return;
     if (value === "0" && numA.length === 0) return;
     // Can't add multiple decimals
     numA += value;
@@ -64,11 +65,20 @@ $$(".num-button").forEach((button) =>
 );
 
 $("#num-dot").addEventListener("click", (e) => {
-  if (numA.length >= displayCharNodes.length) return;
+  if (numA.length >= displayLen) return;
   if (!numA.includes(".")) {
     numA += ".";
   }
 });
+
+function shortenNum(num) {
+  let dotIndex = num.indexOf(".");
+  if (dotIndex === -1 || dotIndex >= displayLen) {
+    return Math.trun(+num).toString();
+  } else {
+    return num.substr(0, displayLen);
+  }
+}
 
 $$(".op-button").forEach((button) =>
   button.addEventListener("click", (e) => {
@@ -78,6 +88,7 @@ $$(".op-button").forEach((button) =>
 
     if (numB !== "" && numA !== "" && curOp !== "") {
       numB = operate(operations[curOp], numB, numA).toString();
+      numB = shortenNum(numB);
       numA = "";
       curOp = value;
     } else if (curOp === "") {
@@ -91,6 +102,7 @@ $$(".op-button").forEach((button) =>
 $("#op-equals").addEventListener("click", (e) => {
   if (numB !== "" && numA !== "" && curOp !== "") {
     numB = operate(operations[curOp], numB, numA).toString();
+    numB = shortenNum(numB);
     numA = "";
     curOp = "";
   }
