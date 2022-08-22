@@ -37,6 +37,9 @@ function updateDisplay() {
 
   // Fill in display
   let displayStr = numA || numB;
+  if (displayStr.length > displayLen) {
+    displayStr = "??????????";
+  }
   let start = Math.max(0, displayLen - displayStr.length);
   let end = Math.min(displayStr.length, displayLen);
   for (let i = start; i < start + end; i++) {
@@ -74,7 +77,7 @@ $("#num-dot").addEventListener("click", (e) => {
 function shortenNum(num) {
   let dotIndex = num.indexOf(".");
   if (dotIndex === -1 || dotIndex >= displayLen) {
-    return Math.trun(+num).toString();
+    return Math.trunc(+num).toString();
   } else {
     return num.substr(0, displayLen);
   }

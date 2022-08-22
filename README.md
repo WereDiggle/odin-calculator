@@ -13,7 +13,7 @@
 - [x] Display active op
 - [x] Dot makes number into decimal
 - [x] Verify number is valid before adding
-- [ ] Round decimals down to avoid overflow
+- [x] Round decimals down to avoid overflow
 ### Layout
 - [x] Buttons for each digit
 - [x] Add button
