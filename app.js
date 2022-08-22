@@ -56,15 +56,15 @@ $$(".num-button").forEach((button) =>
   button.addEventListener("click", (e) => {
     let value = e.target.getAttribute("key-value");
     // Prevent leading zeros
-    if (value === "0" && numA.length === 0) {
-      return;
-    }
+    if (numA.length >= displayCharNodes.length) return;
+    if (value === "0" && numA.length === 0) return;
     // Can't add multiple decimals
     numA += value;
   })
 );
 
 $("#num-dot").addEventListener("click", (e) => {
+  if (numA.length >= displayCharNodes.length) return;
   if (!numA.includes(".")) {
     numA += ".";
   }
