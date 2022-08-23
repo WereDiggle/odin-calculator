@@ -57,6 +57,12 @@ green3: #385030
 green4: #102818
 */
 
+@font-face {
+    font-family: "poketch";
+	src: url("fonts/poketch.ttf");
+	src: url("fonts/poketch.ttf") format("truetype");
+}
+
 body {
 	background-color: #70b070;
     height: 100vh;
@@ -72,6 +78,7 @@ button {
 	color: #385030;
 	border: 5px solid #102818;
 	font-weight: 900;
+	font-family: "poketch";
 }
 
 #display-star,

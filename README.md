@@ -24,6 +24,7 @@
 - [x] clear button
 ### Design
 - [ ] layout ratio
+- [ ] Display character shadows
 - [ ] Border around calculator
 - [ ] Pixel font
 - [ ] Button depth
