@@ -63,6 +63,12 @@ green4: #102818
 	src: url("fonts/poketch.ttf") format("truetype");
 }
 
+@font-face {
+    font-family: "poketch display";
+	src: url("fonts/poketch-display.ttf");
+	src: url("fonts/poketch-display.ttf") format("truetype");
+}
+
 body {
 	background-color: #70b070;
     height: 100vh;
@@ -113,10 +119,16 @@ button {
 	border-right-width: 20px;
 	display: flex;
 	flex-direction: row;
+	font-family: "poketch display";
 }
 
 #display-star {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	width: 50px;
+	font-weight: 100;
+	font-size: 40px;
 }
 
 #display-nums {
@@ -124,11 +136,17 @@ button {
 	flex: 1;
 	flex-direction: row;
 	justify-content: space-evenly;
+	align-items: center;
 }
 
 .display-char {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	width: 25px;
 	height: 50px;
+	font-weight: 100;
+	font-size: 30px;
 }
 
 #numpad {

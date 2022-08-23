@@ -29,10 +29,10 @@ for (let i = 0; i < displayLen; i++) {
 function updateDisplay() {
   // Clear out previous display
   for (const node of displayCharNodes) {
-    node.textContent = "*";
+    node.textContent = "8";
     node.classList.remove("active");
   }
-  $("#display-star").textContent = "*";
+  $("#display-star").textContent = "#";
   $("#display-star").classList.remove("active");
 
   // Fill in display
