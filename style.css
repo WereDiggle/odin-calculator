@@ -141,8 +141,8 @@ button {
 
 .display-char {
 	display: flex;
-	justify-content: center;
 	align-items: center;
+	text-align: center;
 	width: 25px;
 	height: 50px;
 	font-weight: 100;

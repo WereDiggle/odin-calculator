@@ -28,7 +28,7 @@
 - [ ] layout ratio
 - [ ] Display character shadows
 - [ ] Border around calculator
-- [ ] Pixel font
+- [x] Pixel font
 - [ ] Button depth
 - [ ] Button animation
 - [ ] Button sounds
