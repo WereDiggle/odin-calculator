@@ -77,8 +77,19 @@ button {
 	background-color: #70b070;
 	color: #385030;
 	border: 5px solid #102818;
-	font-weight: 900;
+	font-weight: 100;
 	font-family: "poketch";
+	padding-left: 15px;
+	text-align: left;
+}
+
+#op-clear,
+#op-add,
+#op-sub,
+#op-mul,
+#op-div,
+#op-equals {
+	padding-left: 12px;
 }
 
 #display-star,
