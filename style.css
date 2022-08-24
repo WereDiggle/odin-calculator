@@ -79,6 +79,15 @@ body {
 	gap: 10px;
 }
 
+#calculator {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+	gap: 10px;
+}
+
 button {
 	display: flex;
 	flex-direction: column;
@@ -94,12 +103,12 @@ button {
 
 button > .lift {
 	z-index: -1;
-	height: 6px;
+	height: 8px;
 	background-color: #508050;
 	align-self: stretch;
 	justify-self: flex-end;
 	border-top: 5px solid #385030;
-	transform: scaleX(1.05) translateY(1px);
+	transform: scaleX(1.05) translateY(2px);
 	transition: all 0s 0.1s;
 }
 
@@ -206,4 +215,11 @@ button > .face {
 
 #op-equals {
 	grid-column: 4 / -1;
+}
+
+#disclaimer {
+	padding: 20px;
+	color: #385030;
+	font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	justify-self: flex-end;
 }
