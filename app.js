@@ -87,7 +87,7 @@ $$(".op-button").forEach((button) =>
   button.addEventListener("click", (e) => {
     // Operation buttons shouldn't do anything
     // If there's nothing to operate on
-    let value = e.target.getAttribute("key-value");
+    let value = button.getAttribute("key-value");
 
     if (numB !== "" && numA !== "" && curOp !== "") {
       numB = operate(operations[curOp], numB, numA).toString();
