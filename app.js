@@ -95,6 +95,15 @@ function shortenNum(num) {
   }
 }
 
+function doCalculation(op, b, a) {
+  return shortenNum(
+    operate(operations[op], b, a).toLocaleString("fullwide", {
+      useGrouping: false,
+      minimumFractionDigits: 9,
+    })
+  );
+}
+
 $$(".op-button").forEach((button) =>
   button.addEventListener("mousedown", (e) => {
     // Operation buttons shouldn't do anything
@@ -102,10 +111,7 @@ $$(".op-button").forEach((button) =>
     let value = button.getAttribute("key-value");
 
     if (numB && numA && curOp) {
-      numB = operate(operations[curOp], numB, numA).toLocaleString("fullwide", {
-        minimumFractionDigits: 9,
-      });
-      numB = shortenNum(numB);
+      numB = doCalculation(curOp, numB, numA);
       playPokeCry(numB);
       numA = "";
       curOp = value;
@@ -132,23 +138,14 @@ function playPokeCry(num) {
 
 $("#op-equals").addEventListener("mousedown", (e) => {
   if (numB && numA && curOp) {
-    numB = operate(operations[curOp], numB, numA).toLocaleString("fullwide", {
-      minimumFractionDigits: 9,
-    });
-    numB = shortenNum(numB);
+    numB = doCalculation(curOp, numB, numA);
     playPokeCry(numB);
     prevNum = numA;
     prevOp = curOp;
     numA = "";
     curOp = "";
   } else if (numB && prevNum && prevOp) {
-    numB = operate(operations[prevOp], numB, prevNum).toLocaleString(
-      "fullwide",
-      {
-        minimumFractionDigits: 9,
-      }
-    );
-    numB = shortenNum(numB);
+    numB = doCalculation(curOp, numB, numA);
     playPokeCry(numB);
   }
 });
