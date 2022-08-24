@@ -145,7 +145,7 @@ $("#op-equals").addEventListener("mousedown", (e) => {
     numA = "";
     curOp = "";
   } else if (numB && prevNum && prevOp) {
-    numB = doCalculation(curOp, numB, numA);
+    numB = doCalculation(prevOp, numB, prevNum);
     playPokeCry(numB);
   }
 });
