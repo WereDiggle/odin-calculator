@@ -58,7 +58,7 @@ updateDisplay();
 
 $$(".num-button").forEach((button) =>
   button.addEventListener("click", (e) => {
-    let value = e.target.getAttribute("key-value");
+    let value = button.getAttribute("key-value");
     // Prevent leading zeros
     if (numA.length >= displayLen) return;
     if (value === "0" && numA.length === 0) return;
