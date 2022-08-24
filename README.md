@@ -28,14 +28,12 @@
 ### Design
 - [x] Play matching pokedex entry on result
 - [x] layout ratio
-- [ ] Border around calculator
 - [x] Display character shadows
 - [x] Pixel font
 - [x] Button depth
 - [x] Button animation
 - [x] Button sounds
 ### Misc
-- [ ] 
 
 reference: https://youtu.be/9TV80LYNVBI?t=62
 
