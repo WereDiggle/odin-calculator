@@ -61,7 +61,11 @@ $$(".num-button").forEach((button) =>
     let value = button.getAttribute("key-value");
     // Prevent leading zeros
     if (numA.length >= displayLen) return;
-    if (value === "0" && numA.length === 0) return;
+    if (value === "0" && numA === "0") return;
+    if (value !== "0" && numA === "0") {
+      numA = value;
+      return;
+    }
     // Can't add multiple decimals
     numA += value;
   })
@@ -89,12 +93,12 @@ $$(".op-button").forEach((button) =>
     // If there's nothing to operate on
     let value = button.getAttribute("key-value");
 
-    if (numB !== "" && numA !== "" && curOp !== "") {
+    if (numB && numA && curOp) {
       numB = operate(operations[curOp], numB, numA).toString();
       numB = shortenNum(numB);
       numA = "";
       curOp = value;
-    } else if (curOp === "") {
+    } else if ((numA || numB) && curOp === "") {
       numB = numA || numB;
       numA = "";
       curOp = value;
