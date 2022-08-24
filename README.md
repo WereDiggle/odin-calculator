@@ -16,8 +16,7 @@
 - [x] Round decimals down to avoid overflow
 - [x] Ability to enter "0"
 - [x] Fix trailing zeros showing up in decimals
-- [ ] Clicking on "=" again will repeat the last operation on current result
-    - [ ] Need a flag for which num var to display
+- [x] Clicking on "=" again will repeat the last operation on current result
 ### Layout
 - [x] Buttons for each digit
 - [x] Add button
@@ -27,14 +26,14 @@
 - [x] display numbers and operations
 - [x] clear button
 ### Design
+- [ ] Play matching pokedex entry on result
 - [ ] layout ratio
-- [ ] Display character shadows
 - [ ] Border around calculator
+- [x] Display character shadows
 - [x] Pixel font
 - [x] Button depth
 - [x] Button animation
 - [x] Button sounds
-- [ ] Play matching pokedex entry on result
 ### Misc
 - [ ] 
 

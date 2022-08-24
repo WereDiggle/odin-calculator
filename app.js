@@ -14,6 +14,9 @@ var numA = "";
 var numB = "";
 var curOp = "";
 
+var prevOp = "";
+var prevNum = "";
+
 // Initialize display
 // Fill display with divs of class 'display-char'
 // Put them into a list for access later
@@ -82,6 +85,8 @@ $("#num-dot").addEventListener("click", (e) => {
 });
 
 function shortenNum(num) {
+  num = num.replace(/0+$/, "");
+  num = num.replace(/\.$/, "");
   let dotIndex = num.indexOf(".");
   if (dotIndex === -1 || dotIndex >= displayLen) {
     return Math.trunc(+num).toString();
@@ -103,22 +108,36 @@ $$(".op-button").forEach((button) =>
       numB = shortenNum(numB);
       numA = "";
       curOp = value;
+      prevNum = "";
+      prevOp = "";
     } else if ((numA || numB) && curOp === "") {
       numB = numA || numB;
       numA = "";
       curOp = value;
+      prevNum = "";
+      prevOp = "";
     }
   })
 );
 
 $("#op-equals").addEventListener("click", (e) => {
-  if (numB !== "" && numA !== "" && curOp !== "") {
+  if (numB && numA && curOp) {
     numB = operate(operations[curOp], numB, numA).toLocaleString("fullwide", {
       minimumFractionDigits: 9,
     });
     numB = shortenNum(numB);
+    prevNum = numA;
+    prevOp = curOp;
     numA = "";
     curOp = "";
+  } else if (numB && prevNum && prevOp) {
+    numB = operate(operations[prevOp], numB, prevNum).toLocaleString(
+      "fullwide",
+      {
+        minimumFractionDigits: 9,
+      }
+    );
+    numB = shortenNum(numB);
   }
 });
 
