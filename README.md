@@ -40,3 +40,7 @@ reference: https://youtu.be/9TV80LYNVBI?t=62
 
 I do not own Pokemon, or Poketch.
 All rights to those belong to their respective owners.
+
+Thanks to Kenney or www.kenney.nl for the button sound effects
+
+Thanks to Darius Dan for the pokeball favicon

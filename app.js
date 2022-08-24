@@ -120,6 +120,8 @@ $("#op-clear").addEventListener("click", (e) => {
 $$("button").forEach((button) =>
   button.addEventListener("click", (e) => {
     updateDisplay();
+    $("#button-sound").currentTime = 0;
+    $("#button-sound").play();
   })
 );
 
