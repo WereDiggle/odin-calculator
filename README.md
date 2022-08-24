@@ -15,7 +15,7 @@
 - [x] Verify number is valid before adding
 - [x] Round decimals down to avoid overflow
 - [x] Ability to enter "0"
-- [ ] Fix trailing zeros showing up in decimals
+- [x] Fix trailing zeros showing up in decimals
 - [ ] Clicking on "=" again will repeat the last operation on current result
     - [ ] Need a flag for which num var to display
 ### Layout

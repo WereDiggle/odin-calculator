@@ -89,7 +89,7 @@ button {
 	color: #385030;
 	height: 50px;
 	border: 5px solid #102818;
-	transition: all 0s 0.05s;
+	transition: all 0s 0.1s;
 }
 
 button > .lift {
@@ -100,7 +100,7 @@ button > .lift {
 	justify-self: flex-end;
 	border-top: 5px solid #385030;
 	transform: scaleX(1.05) translateY(1px);
-	transition: all 0s 0.05s;
+	transition: all 0s 0.1s;
 }
 
 button:active {
