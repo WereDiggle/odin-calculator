@@ -74,6 +74,9 @@ $$(".num-button").forEach((button) =>
 $("#num-dot").addEventListener("click", (e) => {
   if (numA.length >= displayLen) return;
   if (!numA.includes(".")) {
+    if (!numA) {
+      numA = "0";
+    }
     numA += ".";
   }
 });
@@ -83,7 +86,7 @@ function shortenNum(num) {
   if (dotIndex === -1 || dotIndex >= displayLen) {
     return Math.trunc(+num).toString();
   } else {
-    return num.substr(0, displayLen);
+    return num.substr(0, displayLen).replace(/0+$/, "");
   }
 }
 
@@ -94,7 +97,9 @@ $$(".op-button").forEach((button) =>
     let value = button.getAttribute("key-value");
 
     if (numB && numA && curOp) {
-      numB = operate(operations[curOp], numB, numA).toString();
+      numB = operate(operations[curOp], numB, numA).toLocaleString("fullwide", {
+        minimumFractionDigits: 9,
+      });
       numB = shortenNum(numB);
       numA = "";
       curOp = value;
@@ -108,7 +113,9 @@ $$(".op-button").forEach((button) =>
 
 $("#op-equals").addEventListener("click", (e) => {
   if (numB !== "" && numA !== "" && curOp !== "") {
-    numB = operate(operations[curOp], numB, numA).toString();
+    numB = operate(operations[curOp], numB, numA).toLocaleString("fullwide", {
+      minimumFractionDigits: 9,
+    });
     numB = shortenNum(numB);
     numA = "";
     curOp = "";
