@@ -31,7 +31,7 @@
 - [x] Pixel font
 - [x] Button depth
 - [x] Button animation
-- [ ] Button sounds
+- [x] Button sounds
 - [ ] Play matching pokedex entry on result
 ### Misc
 - [ ] 

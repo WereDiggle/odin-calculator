@@ -117,13 +117,15 @@ $("#op-clear").addEventListener("click", (e) => {
   numB = "";
 });
 
-$$("button").forEach((button) =>
+$$("button").forEach((button) => {
   button.addEventListener("click", (e) => {
     updateDisplay();
+  });
+  button.addEventListener("mousedown", (e) => {
     $("#button-sound").currentTime = 0;
     $("#button-sound").play();
-  })
-);
+  });
+});
 
 // Add chars to currentInput while numpad keys are being hit
 // On click for operation: push currentInput into inputList
