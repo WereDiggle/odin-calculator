@@ -26,8 +26,8 @@
 - [x] display numbers and operations
 - [x] clear button
 ### Design
-- [ ] Play matching pokedex entry on result
-- [ ] layout ratio
+- [x] Play matching pokedex entry on result
+- [x] layout ratio
 - [ ] Border around calculator
 - [x] Display character shadows
 - [x] Pixel font
