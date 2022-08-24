@@ -29,8 +29,8 @@
 - [ ] Display character shadows
 - [ ] Border around calculator
 - [x] Pixel font
-- [ ] Button depth
-- [ ] Button animation
+- [x] Button depth
+- [x] Button animation
 - [ ] Button sounds
 - [ ] Play matching pokedex entry on result
 ### Misc
