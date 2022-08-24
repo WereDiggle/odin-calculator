@@ -149,6 +149,7 @@ button > .face {
 #display-star.active,
 .display-char.active {
 	color: #102818;
+	text-shadow: 0px 5px #508050;
 }
 
 #display {
