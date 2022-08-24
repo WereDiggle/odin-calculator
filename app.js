@@ -60,7 +60,7 @@ function updateDisplay() {
 updateDisplay();
 
 $$(".num-button").forEach((button) =>
-  button.addEventListener("click", (e) => {
+  button.addEventListener("mousedown", (e) => {
     let value = button.getAttribute("key-value");
     // Prevent leading zeros
     if (numA.length >= displayLen) return;
@@ -74,7 +74,7 @@ $$(".num-button").forEach((button) =>
   })
 );
 
-$("#num-dot").addEventListener("click", (e) => {
+$("#num-dot").addEventListener("mousedown", (e) => {
   if (numA.length >= displayLen) return;
   if (!numA.includes(".")) {
     if (!numA) {
@@ -96,7 +96,7 @@ function shortenNum(num) {
 }
 
 $$(".op-button").forEach((button) =>
-  button.addEventListener("click", (e) => {
+  button.addEventListener("mousedown", (e) => {
     // Operation buttons shouldn't do anything
     // If there's nothing to operate on
     let value = button.getAttribute("key-value");
@@ -106,6 +106,7 @@ $$(".op-button").forEach((button) =>
         minimumFractionDigits: 9,
       });
       numB = shortenNum(numB);
+      playPokeCry(numB);
       numA = "";
       curOp = value;
       prevNum = "";
@@ -120,12 +121,22 @@ $$(".op-button").forEach((button) =>
   })
 );
 
-$("#op-equals").addEventListener("click", (e) => {
+function playPokeCry(num) {
+  if (+num >= 1 && +num <= 649 && !num.includes(".")) {
+    $("#poke-cry").src = `sounds/${num}.ogg`;
+    $("#poke-cry").currentTime = 0;
+    $("#poke-cry").volume = 0.2;
+    $("#poke-cry").play();
+  }
+}
+
+$("#op-equals").addEventListener("mousedown", (e) => {
   if (numB && numA && curOp) {
     numB = operate(operations[curOp], numB, numA).toLocaleString("fullwide", {
       minimumFractionDigits: 9,
     });
     numB = shortenNum(numB);
+    playPokeCry(numB);
     prevNum = numA;
     prevOp = curOp;
     numA = "";
@@ -138,20 +149,19 @@ $("#op-equals").addEventListener("click", (e) => {
       }
     );
     numB = shortenNum(numB);
+    playPokeCry(numB);
   }
 });
 
-$("#op-clear").addEventListener("click", (e) => {
+$("#op-clear").addEventListener("mousedown", (e) => {
   curOp = "";
   numA = "";
   numB = "";
 });
 
 $$("button").forEach((button) => {
-  button.addEventListener("click", (e) => {
-    updateDisplay();
-  });
   button.addEventListener("mousedown", (e) => {
+    updateDisplay();
     $("#button-sound").currentTime = 0;
     $("#button-sound").play();
   });
