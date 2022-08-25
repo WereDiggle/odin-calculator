@@ -69,6 +69,14 @@ green4: #102818
 	src: url("fonts/poketch-display.ttf") format("truetype");
 }
 
+h1 {
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	color: #385030;
+	font-size: 4rem;
+	padding: 20px;
+	font-weight: 900;
+}
+
 body {
 	background-color: #70b070;
     height: 100vh;
