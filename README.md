@@ -2,6 +2,8 @@
 
 [Live Demo](https://werediggle.github.io/odin-calculator/)
 
+![Calculator Screenshot](screenshot.png?raw=true "Calculator screenshot")
+
 ## TODO
 ### Functionality
 - [x] create "Add" function
