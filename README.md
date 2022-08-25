@@ -1,5 +1,7 @@
 # odin-calculator
 
+[Live Demo](https://werediggle.github.io/odin-calculator/)
+
 ## TODO
 ### Functionality
 - [x] create "Add" function
