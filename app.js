@@ -40,7 +40,7 @@ function updateDisplay() {
 
   // Fill in display
   let displayStr = numA || numB;
-  if (displayStr.length > displayLen) {
+  if (isNaN(+displayStr) || displayStr.length > displayLen) {
     displayStr = "??????????";
   }
   let start = Math.max(0, displayLen - displayStr.length);
