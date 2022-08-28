@@ -17,6 +17,8 @@ var curOp = "";
 var prevOp = "";
 var prevNum = "";
 
+$("#button-sound").volume = 0.5;
+
 // Initialize display
 // Fill display with divs of class 'display-char'
 // Put them into a list for access later
@@ -131,7 +133,7 @@ function playPokeCry(num) {
   if (+num >= 1 && +num <= 649 && !num.includes(".")) {
     $("#poke-cry").src = `sounds/${num}.ogg`;
     $("#poke-cry").currentTime = 0;
-    $("#poke-cry").volume = 0.2;
+    $("#poke-cry").volume = 0.1;
     $("#poke-cry").play();
   }
 }
